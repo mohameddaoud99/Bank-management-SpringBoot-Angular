@@ -1,0 +1,34 @@
+<div class="container-fluid">
+  <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+      <div class="container">
+          <ul class="navbar-nav mx-auto">
+             
+              <li class="nav-item">
+                  <a routerLink="listeuser" class="nav-link">Liste des clients</a>
+              </li>
+              <li class="nav-item">
+                <a routerLink="ajouteruser" class="nav-link">Ajouter client</a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="listecompte" class="nav-link">Liste des comptes</a>
+          </li>
+              <li class="nav-item">
+                  <a routerLink="ajoutercompte" class="nav-link">Ajouter compte</a>
+              </li>
+          </ul>
+      </div>
+  </nav>
+  <div class="container-fluid col-md-11">
+      <br>
+      <div class="jumbotron jumbotron-fluid" style="color: red;background-color: rgb(234, 240, 240);
+       height: 150px;border-radius: 10px;"><br><br>
+          <div class="container">
+              <h1 class="display-8 text-center"  >GESTION DE BANQUE </h1>
+          </div>
+      </div>
+
+     
+      <br>
+      <router-outlet></router-outlet>
+  </div>
+</div>

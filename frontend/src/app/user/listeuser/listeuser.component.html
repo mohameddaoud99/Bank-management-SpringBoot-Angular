@@ -1,0 +1,102 @@
+<div class="row">
+
+  <div class="col-md-4">
+
+    <!-- <input type="text" placeholder="Search..." class="form-control border" [(ngModel)]="searchText">
+    <br> -->
+
+
+
+
+    <input type="text" class="form-control" placeholder="Chercher client par nom ..." autocomplete="off" (keyup)="getClientbyName()"
+      [(ngModel)]="name" name="name" required>
+    <ul class="list-ensie" *ngIf="isHidden">
+      <li class="list-ensie" *ngFor="let client of listClients"
+        >
+        {{ client.nom}}
+      </li>
+    </ul>
+  </div>
+</div>
+<br>
+
+
+<div class="panel panel-default">
+  <div class="panel-body">
+    <table class="table table-bordered table-hover small nowrap">
+      <thead class="thead-light">
+        <tr>
+          <th>N°</th>
+          <th>Name</th>
+          <th>Prenom</th>
+          <th>Adresse</th>
+          <th>Action</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users | filter_client:name;  let i = index" [id]="user.rib">
+          <td>{{ i + 1 }}</td>
+          <td>{{user.nom}}</td>
+          <td>{{user.prenom}}</td>
+          <td>{{user.adresse}}</td>
+          <td><button (click)="deleteUser(user.id)" class='btn btn-primary'><i
+                class="fa fa-futboll-0">Delete</i></button>&nbsp;
+            &nbsp;
+            <button (click)="updateUser(user.id)" class='btn btn-info' data-toggle="modal"
+              data-target="#myModal">Update</button>
+          </td>
+        </tr>
+      </tbody><br>
+    </table>
+  </div>
+</div>
+
+
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form [formGroup]="userupdateform" #updstu (ngSubmit)="updateStu()">
+
+        <div class="modal-header">
+          <h4 class="modal-title" style="text-align: center">Update User</h4>
+
+        </div>
+
+
+
+        <div class="modal-body" *ngFor="let user of userlist ">
+          <div [hidden]="isupdated">
+
+            <input type="hidden" class="form-control" formControlName="id" [(ngModel)]="user.id">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" formControlName="nom" [(ngModel)]="user.nom">
+            </div>
+
+            <div class="form-group">
+              <label for="name">Prenom</label>
+              <input type="text" class="form-control" formControlName="prenom" [(ngModel)]="user.prenom">
+            </div>
+
+            <div class="form-group">
+              <label for="name">Adresse</label>
+              <input type="text" class="form-control" formControlName="adresse" [(ngModel)]="user.adresse">
+            </div>
+
+          </div>
+          <div [hidden]="!isupdated">
+            <h4>User Detail Updated!</h4>
+          </div>
+
+        </div>
+
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-success" [hidden]="isupdated">Update</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="changeisUpdate()">Close</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

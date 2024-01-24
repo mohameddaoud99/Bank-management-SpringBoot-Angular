@@ -1,0 +1,96 @@
+<h3>Ajouter Client</h3>
+<div class="row">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4">
+    
+    <div *ngIf="!submitted" style="width: 400px;">
+     
+<form [formGroup]="clientsaveform" (submit)="saveClient()">
+	<div class="info">
+		<div class="form-content">
+		   
+		
+
+			<div class="form-row">
+			   
+				
+			  <div class="">
+				  <label for="nom">nom*</label>
+				  <input id="nom"
+					  [class.is-invalid]="clientsaveform.controls['nom'].invalid && clientsaveform.controls['nom'].touched"
+					  name="nom" required class="form-control"
+					  formControlName="nom" placeholder="Entrez votre nom de client">
+				  <span class="highlight"></span>
+				  <span class="input-group"></span>
+				  <div class="invalid-feedback"
+					  *ngIf="form_control['nom'].invalid && form_control['nom'].touched">
+					  Veuillez saisir un nom de client.
+				  </div>
+			  </div>
+<br>
+
+			  <div class="">
+				  <label for="prenom">prenom *</label>
+				  <input  id="prenom"
+					  [class.is-invalid]="clientsaveform.controls['prenom'].invalid && clientsaveform.controls['prenom'].touched"
+					  name="prenom" required class="form-control"
+					  formControlName="prenom" placeholder="Entrez votre prenom de client">
+				  <span class="highlight"></span>
+				  <span class="input-group"></span>
+				  <div class="invalid-feedback"
+					  *ngIf="form_control['prenom'].invalid && form_control['prenom'].touched">
+					  Veuillez saisir un prenom de client valide.
+				  </div>
+			  </div>
+			</div>
+
+			<br>
+			
+			<div class="grid">
+			 
+
+			<div class="">
+			  <label for="adresse">adresse *</label>
+			  <input  id="relephone "
+				  [class.is-invalid]="clientsaveform.controls['adresse'].invalid && clientsaveform.controls['adresse'].touched"
+				  name="adresse" required class="form-control"
+				  formControlName="adresse" placeholder="Entrez votre adresse" />
+			  <span class="highlight"></span>
+			  <span class="input-group"></span>
+			  <div class="invalid-feedback"
+				  *ngIf="form_control['adresse'].invalid && form_control['adresse'].touched">
+				  Veuillez saisir un adresse valide.
+				</div>
+			</div>
+			
+			</div>
+<br>
+	 
+
+
+		</div>
+		<button class="btn btn-danger w-50" adresse="submit"
+			[disabled]="clientsaveform.invalid">Ajouter</button>
+		
+		  </div>
+</form>
+
+
+</div>
+</div>
+<div class="col-sm-4"></div>
+</div>
+<div class="row">
+<div class="col-sm-4"></div>
+<div class="col-sm-4">
+  <div *ngIf="submitted">
+	<h4>User Added Successfully!</h4>
+	
+
+	<button (click)="addUserForm()" class="btn btn-primary w-50" adresse="submit"
+		  [disabled]="clientsaveform.invalid">Ajouter</button>
+  </div>
+</div>
+<div class="col-sm-4"></div>
+</div>
+
